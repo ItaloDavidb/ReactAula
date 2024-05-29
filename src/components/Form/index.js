@@ -3,15 +3,22 @@ import { default as TextField } from "../TextField/";
 import { default as DropDownList } from "../DropDownList";
 import Button from "../Button";
 import { useState } from "react";
-export default function Form() {
+export default function Form(props) {
   const teams = ["Lorem", "Ipsom", "Lipsom"];
-  const save = (event) => {
-    event.preventDefault();
-  };
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
   const [image, setImage] = useState("");
   const [team, setTeam] = useState("");
+  const save = (event) => {
+    event.preventDefault();
+    props.newUsr({
+      name,
+      role,
+      image,
+      team,
+    });
+  };
+
   return (
     <section className="form">
       <form onSubmit={save}>
