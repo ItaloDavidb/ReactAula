@@ -4,7 +4,6 @@ import { default as DropDownList } from "../DropDownList";
 import Button from "../Button";
 import { useState } from "react";
 export default function Form(props) {
-  const teams = ["Lorem", "Ipsom", "Lipsom"];
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
   const [image, setImage] = useState("");
@@ -47,7 +46,7 @@ export default function Form(props) {
           onChange={(value) => setTeam(value)}
           required={true}
           label="Team"
-          item={teams}
+          item={props.teamsName}
         />
         <Button>Criar Card</Button>
       </form>
