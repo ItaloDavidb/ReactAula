@@ -1,3 +1,4 @@
+import Card from "../Card";
 import "./Teams.css";
 
 export default function Team(props) {
@@ -15,6 +16,7 @@ export default function Team(props) {
       >
         {props.name}
       </h3>
+      <Card />
     </section>
   );
 }
