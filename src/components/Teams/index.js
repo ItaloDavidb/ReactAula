@@ -3,20 +3,32 @@ import "./Teams.css";
 
 export default function Team(props) {
   return (
-    <section
-      style={{
-        backgroundColor: props.secondaryColor,
-      }}
-      className="team"
-    >
-      <h3
+    props.usr.length > 0 && (
+      <section
         style={{
-          borderColor: props.color,
+          backgroundColor: props.secondaryColor,
         }}
+        className="team"
       >
-        {props.name}
-      </h3>
-      <Card />
-    </section>
+        <h3
+          style={{
+            borderColor: props.color,
+          }}
+        >
+          {props.name}
+        </h3>
+        <div className="usr">
+          {props.usr.map((user) => (
+            <Card
+              usrName={user.name}
+              usrCargo={user.role}
+              usrImage={user.image}
+              usrTeam={user.team}
+              usrColor={props.color}
+            />
+          ))}
+        </div>
+      </section>
+    )
   );
 }

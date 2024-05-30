@@ -7,7 +7,7 @@ export default function Form(props) {
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
   const [image, setImage] = useState("");
-  const [team, setTeam] = useState("");
+  const [team, setTeam] = useState("Lorem");
   const save = (event) => {
     event.preventDefault();
     props.newUsr({
@@ -16,6 +16,10 @@ export default function Form(props) {
       image,
       team,
     });
+    setName("");
+    setTeam("");
+    setRole("");
+    setImage("");
   };
 
   return (

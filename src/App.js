@@ -22,10 +22,11 @@ function App() {
   ];
   const [user, setUser] = useState([]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <Banner />
+    <div key={"app"} className="App">
+      <header key={"header"} className="App-header">
+        <Banner key={"banner"} />
         <Form
+          key="form"
           teamsName={teams.map((team) => team.name)}
           newUsr={(usr) => {
             setUser([...user, usr]);
@@ -37,6 +38,7 @@ function App() {
             name={team.name}
             color={team.color}
             secondaryColor={team.secondaryColor}
+            usr={user.filter((user) => user.team === team.name)}
           />
         ))}
       </header>
