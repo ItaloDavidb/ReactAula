@@ -10,6 +10,12 @@ export default function Team(props) {
         }}
         className="team"
       >
+        <input
+          value={props.secondaryColor}
+          type="color"
+          className="input-color"
+          onChange={(event) => props.changeColor(event.target.value, props.id)}
+        />
         <h3
           style={{
             borderColor: props.color,
@@ -20,11 +26,14 @@ export default function Team(props) {
         <div className="usr">
           {props.usr.map((user) => (
             <Card
+              key={user.id}
+              id={user.id}
               usrName={user.name}
               usrCargo={user.role}
               usrImage={user.image}
               usrTeam={user.team}
               usrColor={props.color}
+              onDelete={props.onDelete}
             />
           ))}
         </div>

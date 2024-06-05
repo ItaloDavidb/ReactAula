@@ -1,6 +1,7 @@
 .team {
   text-align: center;
   padding: 32px;
+  position: relative;
 }
 .team h3 {
   font-style: 32px;
@@ -11,6 +12,11 @@
 .team .usr {
   display: flex;
   justify-content: space-around;
-  margin-top: 32px;
+  margin-top: 10px;
   flex-wrap: wrap;
+}
+.input-color {
+  position: absolute;
+  top: 20px;
+  right: 220px;
 }
