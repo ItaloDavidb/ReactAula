@@ -12,7 +12,6 @@ code {
     monospace;
 }
 /* App.css */
-
 button {
   background-color: #008cba; /* Cor de fundo */
   border: none; /* Sem borda */
@@ -30,4 +29,10 @@ button {
 
 button:hover {
   background-color: #005f73; /* Cor de fundo ao passar o mouse */
+}
+
+/* Adicione uma classe para o contêiner que usará Flexbox */
+.flex-container {
+  display: flex;
+  justify-content: flex-end; /* Alinhar itens à direita */
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Banner, Form, Team } from "./components";
 import { v4 as uuidV4 } from "uuid";
 
@@ -58,7 +58,13 @@ function App() {
       }),
     );
   }
-
+  useEffect(() => {
+    fetch("http://localhost:8080/users")
+      .then((response) => response.json())
+      .then((data) => {
+        setUser(data);
+      });
+  }, []);
   return (
     <div key={"app"} className="App">
       <header key={"header"} className="App-header">
