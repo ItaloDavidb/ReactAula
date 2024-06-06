@@ -36,11 +36,17 @@ function App() {
       }),
     );
   }
+
+  function newTeam(newTeam) {
+    setTeams([...teams, { ...newTeam, id: uuidV4() }]);
+  }
+
   return (
     <div key={"app"} className="App">
       <header key={"header"} className="App-header">
         <Banner key={"banner"} />
         <Form
+          newTeam={newTeam}
           key="form"
           teamsName={teams.map((team) => team.name)}
           newUsr={(usr) => {

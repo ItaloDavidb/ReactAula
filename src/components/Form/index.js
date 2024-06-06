@@ -8,6 +8,8 @@ export default function Form(props) {
   const [role, setRole] = useState("");
   const [image, setImage] = useState("");
   const [team, setTeam] = useState("Lorem");
+  const [teamName, setTeamName] = useState("");
+  const [teamColor, setTeamColor] = useState("");
   const save = (event) => {
     event.preventDefault();
     props.newUsr({
@@ -16,14 +18,34 @@ export default function Form(props) {
       image,
       team,
     });
-    setName("");
-    setTeam("");
-    setRole("");
-    setImage("");
   };
 
   return (
     <section className="form">
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          props.newTeam({
+            name: teamName,
+            color: teamColor,
+          });
+        }}
+      >
+        <h2>Preencha os dados para criar um novo Time</h2>
+        <TextField
+          required={true}
+          label="Nome do Time"
+          value={teamName}
+          onChange={(value) => setTeamName(value)}
+        />
+        <TextField
+          required={true}
+          label="Cor do Time"
+          value={teamColor}
+          onChange={(value) => setTeamColor(value)}
+        />
+        <Button>Criar Time</Button>
+      </form>
       <form onSubmit={save}>
         <h2>Preencha os dados para criar o card do coloborador</h2>
         <TextField
