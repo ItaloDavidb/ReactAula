@@ -40,6 +40,7 @@ export default function Form(props) {
         />
         <TextField
           required={true}
+          type={"color"}
           label="Cor do Time"
           value={teamColor}
           onChange={(value) => setTeamColor(value)}

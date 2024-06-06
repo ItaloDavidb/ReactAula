@@ -9,9 +9,10 @@ export default function TextField(field) {
     field.onChange(event.target.value);
   };
   return (
-    <div className="text-field">
+    <div className={`text-field-${field.type ? field.type : ""}`}>
       <label>{field.label}</label>
       <input
+        type={field.type ? field.type : "text"}
         value={field.value}
         onChange={change}
         required={field.required}
