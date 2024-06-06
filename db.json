@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "name": "David",
+      "role": "Dev",
+      "image": "https://github.com/ItaloDavidb.png",
+      "team": "Lorem"
+    },
+    {
+      "name": "David 2",
+      "role": "Dev 2",
+      "image": "https://github.com/ItaloDavidb.png",
+      "team": "Ipsum"
+    },
+    {
+      "name": "David 3",
+      "role": "Dev 3",
+      "image": "https://github.com/ItaloDavidb.png",
+      "team": "Limpsom"
+    }
+  ]
+}
