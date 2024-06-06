@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Banner, Form, Team } from "./components";
 import { v4 as uuidV4 } from "uuid";
+
 function App() {
   const [teams, setTeams] = useState([
     {
@@ -22,10 +23,14 @@ function App() {
       name: "Limpsom",
     },
   ]);
+
   const [user, setUser] = useState([]);
+  const [isFormVisible, setIsFormVisible] = useState(true);
+
   function deleteCard(id) {
     setUser(user.filter((usr) => usr.id !== id));
   }
+
   function changeTeamColor(color, id) {
     setTeams(
       teams.map((team) => {
@@ -37,9 +42,14 @@ function App() {
     );
   }
 
+  const toggleFormVisibility = () => {
+    setIsFormVisible((prevState) => !prevState);
+  };
+
   function newTeam(newTeam) {
     setTeams([...teams, { ...newTeam, id: uuidV4() }]);
   }
+
   function toFavorites(id) {
     setUser(
       user.map((user) => {
@@ -48,19 +58,25 @@ function App() {
       }),
     );
   }
+
   return (
     <div key={"app"} className="App">
       <header key={"header"} className="App-header">
         <Banner key={"banner"} />
-        <Form
-          newTeam={newTeam}
-          key="form"
-          teamsName={teams.map((team) => team.name)}
-          newUsr={(usr) => {
-            const newUser = { ...usr, id: uuidV4(), favorite: false }; // Adiciona um ID único ao novo usuário
-            setUser([...user, newUser]);
-          }}
-        />
+        {isFormVisible && (
+          <Form
+            newTeam={newTeam}
+            key="form"
+            teamsName={teams.map((team) => team.name)}
+            newUsr={(usr) => {
+              const newUser = { ...usr, id: uuidV4(), favorite: false }; // Adiciona um ID único ao novo usuário
+              setUser([...user, newUser]);
+            }}
+          />
+        )}
+        <button onClick={toggleFormVisibility}>
+          {isFormVisible ? "Esconder Formulário" : "Mostrar Formulário"}
+        </button>
         {teams.map((team) => (
           <Team
             favorites={toFavorites}
