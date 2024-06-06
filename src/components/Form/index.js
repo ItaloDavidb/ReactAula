@@ -27,7 +27,7 @@ export default function Form(props) {
           event.preventDefault();
           props.newTeam({
             name: teamName,
-            color: teamColor,
+            secondaryColor: teamColor,
           });
         }}
       >

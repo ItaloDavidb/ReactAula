@@ -24,16 +24,19 @@ export default function Team(props) {
           {props.name}
         </h3>
         <div className="usr">
+          {console.log(props.usr)}
           {props.usr.map((user) => (
             <Card
               key={user.id}
               id={user.id}
+              usrFavorite={user.favorite}
               usrName={user.name}
               usrCargo={user.role}
               usrImage={user.image}
               usrTeam={user.team}
               usrColor={props.color}
               onDelete={props.onDelete}
+              favorites={props.favorites}
             />
           ))}
         </div>

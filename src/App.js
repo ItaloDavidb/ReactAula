@@ -40,7 +40,14 @@ function App() {
   function newTeam(newTeam) {
     setTeams([...teams, { ...newTeam, id: uuidV4() }]);
   }
-
+  function toFavorites(id) {
+    setUser(
+      user.map((user) => {
+        if (user.id === id) user.favorite = !user.favorite;
+        return user;
+      }),
+    );
+  }
   return (
     <div key={"app"} className="App">
       <header key={"header"} className="App-header">
@@ -50,12 +57,13 @@ function App() {
           key="form"
           teamsName={teams.map((team) => team.name)}
           newUsr={(usr) => {
-            const newUser = { ...usr, id: uuidV4() }; // Adiciona um ID único ao novo usuário
+            const newUser = { ...usr, id: uuidV4(), favorite: false }; // Adiciona um ID único ao novo usuário
             setUser([...user, newUser]);
           }}
         />
         {teams.map((team) => (
           <Team
+            favorites={toFavorites}
             key={team.id}
             id={team.id}
             name={team.name}
